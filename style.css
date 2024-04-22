@@ -1,0 +1,283 @@
+/* Paste the provided CSS here */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.forms-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Move container up */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Move container back to its original position */
+    }
+}
+
+.welcome-form {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: hwb(283 2% 58%); 
+    border-radius: 150px 0 0 100px;
+    color: #fff;
+    background: linear-gradient(to right #5c6bc0, #512da8);
+    transform: translateX(0);
+    animation: fadeIn 0.8s ease-out forwards; /* Apply animation */
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.welcome-message h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-message p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#explore-btn {
+    background-color: #fff;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#explore-btn:hover {
+    background-color: #4527a0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 49px;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-field input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    padding: 30px 15px;
+    border-radius: 30px;
+    transition: all 0.3s;
+    background-color: #eee;
+    border: none;
+}
+
+.input-field input:focus {
+    border-color: #9b59b6;
+}
+
+.btn {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: hwb(283 2% 58%);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #8e44ad;
+}
+
+.panels-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 0;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.image {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.left-panel .image {
+    transform: translateX(-20%);
+}
+
+.right-panel .image {
+    transform: translateX(20%);
+}
+
+.panel .content {
+    color: #fff;
+}
+
+.panel h3 {
+    font-weight: 600;
+}
+
+.panel p {
+    padding: 0 10%;
+}
+
+.panel .btn {
+    width: 50%;
+    background: #9b59b6;
+    color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.panel .btn:hover {
+    background: #fff;
+    color: #9b59b6;
+}
+
+.panel .btn:active {
+    background: #fff;
+    color: #9b59b6;
+}
+
+.panel .btn.transparent {
+    background: transparent;
+    border-color: #fff;
+}
+
+.panel .btn.transparent:hover {
+    background: #fff;
+    color: #9b59b6;
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid hsl(0, 78%, 37%);
+    margin: 0 3px;
+    align-items: center;
+}
+
+.social-icons p {
+    display: flex;
+    justify-content: center;
+    color: #4527a0;
+}
+
+.social-icons .icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons .icon:hover {
+    transform: scale(1.2); /* Increase size on hover */
+    color: #9b59b6; /* Change color on hover */
+}
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 992px) {
+    .forms-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container,
+    .welcome-form {
+        width: 100%;
+    }
+
+    .panels-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-container {
+        padding: 1rem;
+    }
+
+    .input-field input {
+        padding: 0.6rem 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Page CSS */
+
